@@ -1,0 +1,271 @@
+header, body, div, input {
+    font-family: "Stoke", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #49790a;
+
+}
+
+header{
+    padding: 4%;
+    font-size: 40px;
+}
+
+main, body{
+    background-color: black;
+    background: linear-gradient(black, #49790a);
+    height: 100%;
+    width: 100%;
+}
+
+
+.screenControles{
+    margin-right: 5%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+
+}
+
+#screen{
+    width: 900.3px;;
+    height: 858.3px;
+}
+
+#control{ 
+    height: 858.3px;
+    width: 670px;
+}
+
+
+.titles1{
+    position: relative;
+    bottom: 76.5vh;
+    left: 17.8vw;
+    font-size: 1.5em;
+}
+
+
+#textInput{
+    position: relative;
+    bottom: 75.5vh;
+    left: 18.1vw;
+    border: 2px solid #49790a;
+    background: transparent;
+    font-size: large;
+    width: 38.9%;
+    height: 4vh;
+    outline: none;
+    animation: blink 3s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 100%; 
+    }
+    51%, 100% {
+        opacity: 70%; 
+    }
+}
+
+.encryptedTitle{
+    position: relative;
+    bottom: 73.8vh;
+    left: 18.2vw;
+    font-size: 1.5em;
+}
+
+#encryptedResult{
+border: 2px solid #49790a;
+background: transparent;
+font-size: large;
+width: 39.5%;
+height: 39vh;
+position: relative;
+bottom:72.6vh;
+left: 18.1%;
+outline: none;
+}
+
+#helpDiv{
+    display: none;
+    position: absolute;
+    overflow: scroll;
+    top: 25.2vh;
+    left: 17.8vw;
+    font-size: 1.5em;
+    border: 2px solid #49790a;
+    background: black;
+    font-size: large;
+    width: 39.7%;
+    height: 53%;
+}
+
+@supports selector(::-webkit-scrollbar) {
+    #helpDiv::-webkit-scrollbar {
+    background: black;
+    }
+
+    #helpDiv::-webkit-scrollbar-thumb {
+    background: #49790a;
+    border-radius: 3em;
+    height: 10%;
+    }
+
+    #helpDiv::-webkit-scrollbar-button {
+        background: #000000;
+
+    }
+
+}
+
+#vaultBoyPipBoy{
+    position: relative;
+    width: 16%;
+    height: auto;
+    left: 78%;
+}
+
+#vaultBoy{
+    position: relative;
+    width: 24%;
+    height: auto;
+    top: 51%;
+    
+}
+
+#copias{
+    position: relative;
+    display: inline;
+    width: 37%;
+    left: 63%;
+    top: -4%;
+
+}
+
+#optionScreen{
+    border: 2px solid #49790a;
+    background: transparent;
+    font-size: large;
+    width: 10.5%;
+    height: 20vh;
+    display: flex;
+    flex-grow: 1em;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+    bottom:119.6vh;
+    left: 66.6%;
+    text-align: center;
+}
+
+#yesNoMenu{
+    position: relative;
+    width: 10%;
+    
+}
+
+
+.writting{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.buttonScreen{
+    display: inline;
+    border: none;
+    margin: 10px;
+    padding: 1px;
+    border-radius: 100%;
+    background: black;
+    cursor: pointer;
+}
+
+
+#cipherButton{
+    position: relative;
+        bottom: 86vh;
+        left: 45%;
+    }
+
+
+#descryptButton{
+    position: relative;
+        bottom: 86.2vh;
+        left: 44.4%;
+
+}
+
+#copyButton{
+    position: relative;
+        bottom: 86vh;
+        left: 44%;
+    box-shadow: -1px 2px  15px 12px #000000;
+}
+
+.buttonScreen:active{
+    display: inline;
+    border: none;
+    margin: 10px;
+    padding: 1px;
+    border-radius: 100%;
+    background: rgb(180, 147, 0) !important;
+    cursor: pointer;
+    box-shadow: 12px 15px  120px 65px #b9910b !important; 
+}
+
+
+.controlButton{
+    border: none;
+    margin: 10px;
+    padding: 1px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#scrollUp{
+    position: relative;
+    bottom: 112.2vh;
+    left: 74.9%;
+
+}
+
+#scrollDown{
+    position: relative;
+    bottom: 106.7vh;
+    left: 71.9%;
+}
+
+#aButtom{
+    position: relative;
+    bottom: 92.6vh;
+    left: 55.9%;
+    border-radius: 100%;
+}
+
+#bButtom{
+    position: relative;
+    bottom: 99.9vh;
+    left: 51.6%;
+    border-radius: 100%;
+}
+
+.controlButton:active{
+    opacity: 20%;
+}
+
+
+footer{
+    width: 100%;
+    height: 10vh;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+}
+

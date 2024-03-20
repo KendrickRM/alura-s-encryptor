@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stoke&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpg" href="imagenes/guacamayo.png"/>
+    <title>Encriptador Alura</title>
+</head>
+<body>
+    <header> <h1>Bienvenido al encriptador de texto!</h1></header>
+<main id="encryptor" >
+    <section>
+        
+        <div class="screenControles">
+                <img id="screen" src="imagenes/Plantilla PipBoy pantalla.png">
+                <img id="control" src="imagenes/Plantilla PipBoy controles.png">
+        </div>
+        <div class="writting">                
+
+                <h2 class="titles1">Ingrese el texto y toque el boton por favor</h2>
+                <input type="text" cols="10" rows="10" id="textInput"></input>
+                <h2 class="encryptedTitle">Texto final: </h2>
+                <div id="encryptedResult"> <img id="vaultBoy" src="imagenes/Vault Boy con computadora.webp"></div>
+                <div id="helpDiv"> <h1>Menu de ayuda del Encriptador</h1>En este apartado nos centraremos en explicar la funcionalidad de cada uno de los botones para que usted, usuario pueda guiarse de la mejor manera en este encriptador, sin mas que decir empecemos con la explicación 
+                    <p>
+                    <br>Primeramente le daremos un vistazo a los botones redondos de la parte inferior de la pantalla: 
+                    <br>
+                    <br>Encriptar: El primer boton de ellos siguiendo un patron de izquierda a derecha es el boton de encriptar, como su nombre lo indica; su funcion es la de encriptar el texto, podrian darse detalles sobre el funcionamiento de la encriptacion pero si se da no tendria sentido llamar encriptador a esta pagina No crees? 
+                    <br>
+                    <br>Desencriptar: Siguiendo el mismo orden, el segundo boton es el que se encargara de de desencriptar la informacion previamente encriptada con la funcion <em>"Encriptar"</em>.                     
+                    <br>
+                    <br>Copiar: Este boton es especial por que te permite copiar el ultimo resultado del que pudiste ser testigo, si encriptaste el texto copiaras la version encriptada pero si por el contrario desencriptaste el texto podras copiar la version desencriptada, saldra un mensaje en la pantalla de al lado indicando si se logro hacer la operacion.
+                    <br>
+                    <br>Boton A: Este boton sirve como selector de la version afirmativa hacia una prengunta, si te preguntan Te gustan los pajaros la manera de responder "Si" a esa pregunta es tocando el boton A
+                    <br>
+                    <br>Boton B: La funcion de este boton es seleccionar la opcion negativa hacia una pregunta, si por algun motivo quieres responder "No" a la pregunta anterior primero que nada ya no somos amigos y segundo, tendrias que tocar el boton B para llevar a cabo tu respuesta
+                    <br>
+                    <br>Boton flecha para arriba: Este boton te permite controlar el Scroll hacia arriba, tocalo y llevame hacia las estrellas!!
+                    <br>
+                    <br>Boton flecha para abajo: Como pudiste intuir, este boton controla el Scroll hacia abajo Si no supieras este dato no podrias leer este mensaje! interesante no crees? Como una peque;a recompensa te regalare una imagen
+                    <br>
+                    <img id="vaultBoyPipBoy" src="imagenes/Vault Boy con PipBoy.webp">
+                </div>
+
+                </p>
+            </div>
+                <div id="optionScreen"> <p>¡Bienvenido al encriptador! <br> ¿Quieres leer una explicación de los diferentes botones y sus funciones? </p> <img id="copias" src="imagenes/Vault Boy Copias.webp">
+                <ul class="yesNoMenu">
+                    <br>
+                    <li>A. Si</li>
+                    <li>B. No</li>
+                </ul>
+        
+        </div>
+
+    <button class="buttonScreen" id="cipherButton">
+        <img class="circleButtom" src="imagenes/Boton inactivo.png"  >
+    </button>
+    <button class="buttonScreen" id="descryptButton">
+        <img class="circleButtom" src="imagenes/boton inactivo.png">
+    </button>
+    <button class="buttonScreen" id="copyButton">
+        <img class="circleButtom" src="imagenes/boton inactivo.png" >
+    </button>
+
+
+    </section >
+    <section>
+        
+        <div>
+            <button class="controlButton" id="scrollUp">
+                <img src="imagenes/botonArribaApagado.png" >
+            </button>
+            <button class="controlButton" id="scrollDown">
+                <img src="imagenes/botonAbajoApagado.png" >
+            </button>
+            <button class="controlButton" id="aButtom">
+                <img id="buttondown" src="imagenes/BotonA.png" >
+            </button>
+            <button class="controlButton" id="bButtom">
+                <img src="imagenes/BotonB.png" >
+            </button>
+
+        </div>
+
+    </section>
+</main>
+    <footer>Creado por Kendrick R.M!</footer>
+    <script src="app.js"></script>
+</body>
+</html>
