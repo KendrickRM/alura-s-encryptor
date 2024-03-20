@@ -43,20 +43,20 @@ main, body{
 
 .titles1{
     position: relative;
-    bottom: 76.5vh;
-    left: 17.8vw;
+    bottom: 84.5vh;
+    left: 13.8vw;
     font-size: 1.5em;
 }
 
 
 #textInput{
     position: relative;
-    bottom: 75.5vh;
-    left: 18.1vw;
+    bottom: 83.5vh;
+    left: 13.8vw;
     border: 2px solid #49790a;
     background: transparent;
     font-size: large;
-    width: 38.9%;
+    width: 43.5%;
     height: 4vh;
     outline: none;
     animation: blink 3s infinite;
@@ -73,35 +73,35 @@ main, body{
 
 .encryptedTitle{
     position: relative;
-    bottom: 73.8vh;
-    left: 18.2vw;
+    bottom: 81.8vh;
+    left: 14.2vw;
     font-size: 1.5em;
 }
 
 #encryptedResult{
-border: 2px solid #49790a;
-background: transparent;
-font-size: large;
-width: 39.5%;
-height: 39vh;
-position: relative;
-bottom:72.6vh;
-left: 18.1%;
-outline: none;
+    border: 2px solid #49790a;
+    background: transparent;
+    font-size: large;
+    width: 43.5%;
+    height: 39vh;
+    position: relative;
+    bottom: 76.6vh;
+    left: 14.1%;
+    outline: none;
 }
 
 #helpDiv{
     display: none;
     position: absolute;
     overflow: scroll;
-    top: 25.2vh;
-    left: 17.8vw;
+    top: 26.2vh;
+    left: 13.8vw;
     font-size: 1.5em;
     border: 2px solid #49790a;
     background: black;
     font-size: large;
-    width: 39.7%;
-    height: 53%;
+    width: 43.7%;
+    height: 59%;
 }
 
 @supports selector(::-webkit-scrollbar) {
@@ -133,7 +133,7 @@ outline: none;
     position: relative;
     width: 24%;
     height: auto;
-    top: 51%;
+    top: 45%;
     
 }
 
@@ -150,15 +150,15 @@ outline: none;
     border: 2px solid #49790a;
     background: transparent;
     font-size: large;
-    width: 10.5%;
-    height: 20vh;
+    width: 11.5%;
+    height: 21vh;
     display: flex;
     flex-grow: 1em;
     flex-wrap: wrap;
     overflow: auto;
     position: relative;
-    bottom:119.6vh;
-    left: 66.6%;
+    bottom: 127.6vh;
+    left: 67.9%;
     text-align: center;
 }
 
@@ -188,24 +188,24 @@ outline: none;
 
 
 #cipherButton{
-    position: relative;
-        bottom: 86vh;
-        left: 45%;
+    osition: relative;
+    bottom: 90.4vh;
+    left: 44%;
     }
 
 
 #descryptButton{
     position: relative;
-        bottom: 86.2vh;
-        left: 44.4%;
+    bottom: 90.8vh;
+    left: 43.1%;
 
 }
 
 #copyButton{
     position: relative;
-        bottom: 86vh;
-        left: 44%;
-    box-shadow: -1px 2px  15px 12px #000000;
+    bottom: 90.8vh;
+    left: 42.5%;
+    box-shadow: -1px 2px 15px 12px #000000;
 }
 
 .buttonScreen:active{
@@ -230,28 +230,28 @@ outline: none;
 
 #scrollUp{
     position: relative;
-    bottom: 112.2vh;
-    left: 74.9%;
+    bottom: 119.2vh;
+    left: 77.1%;
 
 }
 
 #scrollDown{
     position: relative;
-    bottom: 106.7vh;
-    left: 71.9%;
+    bottom: 113.2vh;
+    left: 73.7%;
 }
 
 #aButtom{
     position: relative;
-    bottom: 92.6vh;
+    bottom: 98.6vh;
     left: 55.9%;
     border-radius: 100%;
 }
 
 #bButtom{
     position: relative;
-    bottom: 99.9vh;
-    left: 51.6%;
+    bottom: 105.5vh;
+    left: 51.1%;
     border-radius: 100%;
 }
 
