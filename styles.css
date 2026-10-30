@@ -48,8 +48,10 @@ img {
 /* Escritorio: pantalla (66.7%) + controles (33.3%) lado a lado.
    Ambas tienen la misma altura, asi que el conjunto mide ~1.772 de ancho/alto. */
 main {
-    width: min(96vw, 1300px, calc((100vh - 170px) * 1.772));
-    min-width: 680px;
+    --W: max(680px, min(96vw, 1300px, calc((100vh - 170px) * 1.772)));
+    --pw: calc(var(--W) * 0.667);   /* ancho del panel de la pantalla */
+    --u: calc(var(--pw) / 100);     /* 1% del ancho de ese panel */
+    width: var(--W);
     margin: 0 auto;
     display: flex;
     align-items: flex-start;
@@ -58,7 +60,6 @@ main {
 
 .panel {
     position: relative;
-    container-type: inline-size;
     flex: none;
 }
 
@@ -93,7 +94,7 @@ main {
     width: 89.5%;
     height: 60%;
     display: flex;
-    gap: 2cqw;
+    gap: calc(var(--u) * 2);
     min-height: 0;
 }
 
@@ -103,13 +104,13 @@ main {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.2cqw;
+    gap: calc(var(--u) * 1.2);
     min-height: 0;
 }
 
 .titles1,
 .encryptedTitle {
-    font-size: clamp(11px, 2.5cqw, 24px);
+    font-size: clamp(11px, calc(var(--u) * 2.5), 24px);
     line-height: 1.15;
     flex: none;
 }
@@ -119,9 +120,9 @@ main {
     width: 100%;
     border: 2px solid var(--green);
     background: transparent;
-    font-size: max(16px, 2.2cqw); /* 16px minimo: evita el zoom automatico de iOS */
-    padding: 0.6cqw 1.2cqw;
-    min-height: 5.5cqw;
+    font-size: max(16px, calc(var(--u) * 2.2)); /* 16px minimo: evita el zoom automatico de iOS */
+    padding: calc(var(--u) * 0.6) calc(var(--u) * 1.2);
+    min-height: calc(var(--u) * 5.5);
     border-radius: 0;
     outline: none;
     animation: blink 3s infinite;
@@ -141,9 +142,9 @@ main {
     min-height: 0;
     border: 2px solid var(--green);
     background: transparent;
-    font-size: clamp(11px, 2.2cqw, 22px);
+    font-size: clamp(11px, calc(var(--u) * 2.2), 22px);
     line-height: 1.25;
-    padding: 1cqw;
+    padding: calc(var(--u) * 1);
     overflow: auto;
     overflow-wrap: anywhere;
     outline: none;
@@ -165,9 +166,9 @@ main {
     -webkit-overflow-scrolling: touch;
     border: 2px solid var(--green);
     background: black;
-    font-size: clamp(11px, 2.1cqw, 21px);
+    font-size: clamp(11px, calc(var(--u) * 2.1), 21px);
     line-height: 1.35;
-    padding: 1cqw 1.4cqw;
+    padding: calc(var(--u) * 1) calc(var(--u) * 1.4);
 }
 
 #helpDiv h1 {
@@ -213,16 +214,16 @@ main {
     max-height: 100%;
     border: 2px solid var(--green);
     background: transparent;
-    font-size: clamp(10px, 1.9cqw, 19px);
+    font-size: clamp(10px, calc(var(--u) * 1.9), 19px);
     line-height: 1.25;
-    padding: 0.8cqw;
+    padding: calc(var(--u) * 0.8);
     overflow: auto;
     overflow-wrap: anywhere;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6cqw;
+    gap: calc(var(--u) * 0.6);
 }
 
 #optionScreen:empty {
@@ -269,12 +270,12 @@ main {
 #descryptButton { left: 75.9%; }
 #copyButton {
     left: 83.2%;
-    box-shadow: -1px 2px 2cqw 1.5cqw #000000;
+    box-shadow: -1px 2px calc(var(--u) * 2) calc(var(--u) * 1.5) #000000;
 }
 
 .buttonScreen:active {
     background: rgb(180, 147, 0) !important;
-    box-shadow: 0 0 3cqw 2cqw #b9910b !important;
+    box-shadow: 0 0 calc(var(--u) * 3) calc(var(--u) * 2) #b9910b !important;
 }
 
 /* ---------- Botones del panel de controles ---------- */
@@ -316,6 +317,7 @@ footer {
 /* ---------- Tablet / celular: los paneles se apilan ---------- */
 @media (max-width: 900px) {
     main {
+        --pw: min(calc(100vw - 12px), 760px);
         width: 100%;
         min-width: 0;
         flex-direction: column;
@@ -340,12 +342,12 @@ footer {
         top: 7%;
         height: 63.5%;
         flex-direction: column;
-        gap: 2cqw;
+        gap: calc(var(--u) * 2);
     }
 
     .titles1,
     .encryptedTitle {
-        font-size: clamp(12px, 4cqw, 24px);
+        font-size: clamp(12px, calc(var(--u) * 4), 24px);
     }
 
     #textInput {
@@ -355,12 +357,12 @@ footer {
     }
 
     #encryptedResult {
-        font-size: clamp(12px, 3.8cqw, 22px);
+        font-size: clamp(12px, calc(var(--u) * 3.8), 22px);
         padding: 6px 8px;
     }
 
     #helpDiv {
-        font-size: clamp(12px, 3.5cqw, 21px);
+        font-size: clamp(12px, calc(var(--u) * 3.5), 21px);
         padding: 6px 8px;
     }
 
@@ -368,7 +370,7 @@ footer {
         flex: 0 0 auto;
         align-self: stretch;
         max-height: 34%;
-        font-size: clamp(11px, 3.1cqw, 19px);
+        font-size: clamp(11px, calc(var(--u) * 3.1), 19px);
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
