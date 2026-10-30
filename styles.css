@@ -78,6 +78,7 @@ main {
     width: 33.3%;
     aspect-ratio: 690 / 1170;
     overflow: hidden;
+    container-type: inline-size;
 }
 
 /* La imagen de controles trae 340px de margen vacio a la derecha: se recorta */
@@ -207,16 +208,18 @@ main {
     margin-left: auto;
 }
 
+/* Monitor del Pip-Boy: se posiciona en % sobre el panel de controles */
 #optionScreen {
-    flex: 0 0 27%;
-    min-width: 0;
-    align-self: flex-start;
-    max-height: 100%;
-    border: 2px solid var(--green);
-    background: transparent;
-    font-size: clamp(10px, calc(var(--u) * 1.9), 19px);
-    line-height: 1.25;
-    padding: calc(var(--u) * 0.8);
+    position: absolute;
+    left: 18.5%;
+    top: 7.6%;
+    width: 67%;
+    height: 32%;
+    border: 1px solid var(--green);
+    background: black;
+    font-size: max(8px, 3.5cqw);
+    line-height: 1.2;
+    padding: 2.5cqw;
     overflow: auto;
     overflow-wrap: anywhere;
     text-align: center;
@@ -226,12 +229,17 @@ main {
     gap: calc(var(--u) * 0.6);
 }
 
+#optionScreen {
+    scrollbar-width: thin;
+    scrollbar-color: var(--green) black;
+}
+
 #optionScreen:empty {
     display: none;
 }
 
 #copias {
-    width: 55%;
+    width: 26%;
     height: auto;
 }
 
@@ -341,8 +349,6 @@ footer {
     .writting {
         top: 7%;
         height: 63.5%;
-        flex-direction: column;
-        gap: calc(var(--u) * 2);
     }
 
     .titles1,
@@ -366,37 +372,11 @@ footer {
         padding: 6px 8px;
     }
 
-    #optionScreen {
-        flex: 0 0 auto;
-        align-self: stretch;
-        max-height: 34%;
-        font-size: clamp(11px, calc(var(--u) * 3.1), 19px);
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 4px 8px;
-        gap: 4px 10px;
-    }
-
-    #optionScreen p {
-        flex: 1 1 100%;
-    }
-
-    #copias {
-        width: 14%;
-        max-width: 50px;
-    }
 
     #vaultBoy {
         width: 16%;
         min-width: 30px;
         max-width: 64px;
-    }
-
-    .yesNoMenu {
-        display: flex;
-        gap: 14px;
-        align-items: center;
     }
 
     .buttonScreen {
