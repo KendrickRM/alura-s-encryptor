@@ -63,8 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const desencriptarBtn = document.getElementById('descryptButton');
     const mensajeEncriptadoDiv = document.getElementById('encryptedResult');
 
+    // El menu de ayuda se superpone al resultado: hay que cerrarlo para ver el texto final
+    function cerrarAyuda() {
+        document.getElementById('helpDiv').style.display = 'none';
+    }
+
     encriptarBtn.addEventListener('click', function () {
-        
+        cerrarAyuda();
         const mensajeOriginal = mensajeTextArea.value.toLowerCase();
         if (mensajeOriginal.trim() === '') {
             alert('Por favor, ingrese un texto antes de encriptar.');
@@ -77,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     desencriptarBtn.addEventListener('click', function () {
+        cerrarAyuda();
         const mensajeEncriptado = mensajeTextArea.value.toLowerCase();
         if (mensajeEncriptado.trim() === '') {
             alert('Por favor, ingrese un texto antes de desencriptar.');
