@@ -1,271 +1,410 @@
+/* Paleta y tipografia */
+:root {
+    --green: #49790a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: black;
+    -webkit-text-size-adjust: 100%;
+}
+
 header, body, div, input {
     font-family: "Stoke", serif;
     font-weight: 400;
     font-style: normal;
-    color: #49790a;
-
+    color: var(--green);
 }
 
-header{
-    padding: 4%;
-    font-size: 40px;
-}
-
-main, body{
-    background-color: black;
-    background: linear-gradient(black, #49790a);
-    height: 100%;
-    width: 100%;
-}
-
-
-.screenControles{
-    margin-right: 5%;
-    margin-left: 5%;
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    background: linear-gradient(black, var(--green));
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+header {
+    padding-block: clamp(10px, 1.5vw, 20px);
+    padding-inline: clamp(12px, 4%, 40px);
+}
+
+header h1 {
+    font-size: clamp(20px, 5vw, 40px);
+    line-height: 1.2;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- Escenario ---------- */
+/* Escritorio: pantalla (66.7%) + controles (33.3%) lado a lado.
+   Ambas tienen la misma altura, asi que el conjunto mide ~1.772 de ancho/alto. */
+main {
+    width: min(96vw, 1300px, calc((100vh - 170px) * 1.772));
+    min-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    flex: 1 0 auto;
+}
+
+.panel {
+    position: relative;
+    container-type: inline-size;
+    flex: none;
+}
+
+.panel > img:first-child {
     width: 100%;
     height: 100%;
-
+    max-width: none;
 }
 
-#screen{
-    width: 900.3px;;
-    height: 858.3px;
+.panelScreen {
+    width: 66.7%;
+    aspect-ratio: 792 / 670;
 }
 
-#control{ 
-    height: 858.3px;
-    width: 670px;
+.panelControl {
+    width: 33.3%;
+    aspect-ratio: 690 / 1170;
+    overflow: hidden;
 }
 
+/* La imagen de controles trae 340px de margen vacio a la derecha: se recorta */
+.panelControl > #control {
+    width: 149.13%;
+    height: 100%;
+}
 
-.titles1{
+/* ---------- Contenido dentro de la pantalla ---------- */
+.writting {
+    position: absolute;
+    left: 3%;
+    top: 8%;
+    width: 89.5%;
+    height: 60%;
+    display: flex;
+    gap: 2cqw;
+    min-height: 0;
+}
+
+.mainCol {
     position: relative;
-    bottom: 84.5vh;
-    left: 13.8vw;
-    font-size: 1.5em;
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2cqw;
+    min-height: 0;
 }
 
+.titles1,
+.encryptedTitle {
+    font-size: clamp(11px, 2.5cqw, 24px);
+    line-height: 1.15;
+    flex: none;
+}
 
-#textInput{
-    position: relative;
-    bottom: 83.5vh;
-    left: 13.8vw;
-    border: 2px solid #49790a;
+#textInput {
+    flex: none;
+    width: 100%;
+    border: 2px solid var(--green);
     background: transparent;
-    font-size: large;
-    width: 43.5%;
-    height: 4vh;
+    font-size: max(16px, 2.2cqw); /* 16px minimo: evita el zoom automatico de iOS */
+    padding: 0.6cqw 1.2cqw;
+    min-height: 5.5cqw;
+    border-radius: 0;
     outline: none;
     animation: blink 3s infinite;
 }
 
 @keyframes blink {
     0%, 50% {
-        opacity: 100%; 
+        opacity: 100%;
     }
     51%, 100% {
-        opacity: 70%; 
+        opacity: 70%;
     }
 }
 
-.encryptedTitle{
-    position: relative;
-    bottom: 81.8vh;
-    left: 14.2vw;
-    font-size: 1.5em;
-}
-
-#encryptedResult{
-    border: 2px solid #49790a;
+#encryptedResult {
+    flex: 1 1 0;
+    min-height: 0;
+    border: 2px solid var(--green);
     background: transparent;
-    font-size: large;
-    width: 43.5%;
-    height: 39vh;
-    position: relative;
-    bottom: 76.6vh;
-    left: 14.1%;
+    font-size: clamp(11px, 2.2cqw, 22px);
+    line-height: 1.25;
+    padding: 1cqw;
+    overflow: auto;
+    overflow-wrap: anywhere;
     outline: none;
 }
 
-#helpDiv{
+#vaultBoy {
+    width: 24%;
+    min-width: 36px;
+    max-width: 110px;
+    height: auto;
+    margin-top: 0.5em;
+}
+
+#helpDiv {
     display: none;
     position: absolute;
-    overflow: scroll;
-    top: 26.2vh;
-    left: 13.8vw;
-    font-size: 1.5em;
-    border: 2px solid #49790a;
+    inset: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 2px solid var(--green);
     background: black;
-    font-size: large;
-    width: 43.7%;
-    height: 59%;
+    font-size: clamp(11px, 2.1cqw, 21px);
+    line-height: 1.35;
+    padding: 1cqw 1.4cqw;
+}
+
+#helpDiv h1 {
+    font-size: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+#helpDiv p {
+    margin-bottom: 0.8em;
+}
+
+#helpDiv em {
+    font-style: italic;
 }
 
 @supports selector(::-webkit-scrollbar) {
     #helpDiv::-webkit-scrollbar {
-    background: black;
+        background: black;
+        width: 8px;
     }
 
     #helpDiv::-webkit-scrollbar-thumb {
-    background: #49790a;
-    border-radius: 3em;
-    height: 10%;
+        background: var(--green);
+        border-radius: 3em;
     }
 
     #helpDiv::-webkit-scrollbar-button {
         background: #000000;
-
     }
-
 }
 
-#vaultBoyPipBoy{
-    position: relative;
-    width: 16%;
+#vaultBoyPipBoy {
+    width: 40%;
+    max-width: 130px;
     height: auto;
-    left: 78%;
+    margin-left: auto;
 }
 
-#vaultBoy{
-    position: relative;
-    width: 24%;
-    height: auto;
-    top: 45%;
-    
-}
-
-#copias{
-    position: relative;
-    display: inline;
-    width: 37%;
-    left: 63%;
-    top: -4%;
-
-}
-
-#optionScreen{
-    border: 2px solid #49790a;
+#optionScreen {
+    flex: 0 0 27%;
+    min-width: 0;
+    align-self: flex-start;
+    max-height: 100%;
+    border: 2px solid var(--green);
     background: transparent;
-    font-size: large;
-    width: 11.5%;
-    height: 21vh;
-    display: flex;
-    flex-grow: 1em;
-    flex-wrap: wrap;
+    font-size: clamp(10px, 1.9cqw, 19px);
+    line-height: 1.25;
+    padding: 0.8cqw;
     overflow: auto;
-    position: relative;
-    bottom: 127.6vh;
-    left: 67.9%;
+    overflow-wrap: anywhere;
     text-align: center;
-}
-
-#yesNoMenu{
-    position: relative;
-    width: 10%;
-    
-}
-
-
-.writting{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
+    align-items: center;
+    gap: 0.6cqw;
 }
 
-.buttonScreen{
-    display: inline;
+#optionScreen:empty {
+    display: none;
+}
+
+#copias {
+    width: 55%;
+    height: auto;
+}
+
+.yesNoMenu {
+    list-style: none;
+}
+
+.writting {
+    flex-direction: row;
+}
+
+/* ---------- Botones redondos de la pantalla ---------- */
+.buttonScreen {
+    position: absolute;
+    top: 83.3%;
+    width: 6.2%;
+    min-width: 26px;
+    transform: translate(-50%, -50%);
     border: none;
-    margin: 10px;
-    padding: 1px;
+    margin: 0;
+    padding: 0;
     border-radius: 100%;
     background: black;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
-
-#cipherButton{
-    position: relative;
-    bottom: 90.4vh;
-    left: 44%;
-    }
-
-
-#descryptButton{
-    position: relative;
-    bottom: 90.8vh;
-    left: 43.1%;
-
+.buttonScreen img {
+    width: 100%;
+    height: auto;
+    max-width: none;
 }
 
-#copyButton{
-    position: relative;
-    bottom: 90.8vh;
-    left: 42.5%;
-    box-shadow: -1px 2px 15px 12px #000000;
+#cipherButton  { left: 68.3%; }
+#descryptButton { left: 75.9%; }
+#copyButton {
+    left: 83.2%;
+    box-shadow: -1px 2px 2cqw 1.5cqw #000000;
 }
 
-.buttonScreen:active{
-    display: inline;
-    border: none;
-    margin: 10px;
-    padding: 1px;
-    border-radius: 100%;
+.buttonScreen:active {
     background: rgb(180, 147, 0) !important;
-    cursor: pointer;
-    box-shadow: 12px 15px  120px 65px #b9910b !important; 
+    box-shadow: 0 0 3cqw 2cqw #b9910b !important;
 }
 
-
-.controlButton{
+/* ---------- Botones del panel de controles ---------- */
+.controlButton {
+    position: absolute;
+    transform: translate(-50%, -50%);
     border: none;
-    margin: 10px;
-    padding: 1px;
+    margin: 0;
+    padding: 0;
     background-color: transparent;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
-#scrollUp{
-    position: relative;
-    bottom: 119.2vh;
-    left: 77.1%;
-
+.controlButton img {
+    width: 100%;
+    height: auto;
+    max-width: none;
 }
 
-#scrollDown{
-    position: relative;
-    bottom: 113.2vh;
-    left: 73.7%;
-}
+#scrollUp   { left: 73.6%; top: 63.1%; width: 7.2%; }
+#scrollDown { left: 73.6%; top: 68.6%; width: 7.2%; }
+#aButtom    { left: 14.9%; top: 84.8%; width: 9.9%; border-radius: 100%; }
+#bButtom    { left: 14.9%; top: 77.6%; width: 9.9%; border-radius: 100%; }
 
-#aButtom{
-    position: relative;
-    bottom: 98.6vh;
-    left: 55.9%;
-    border-radius: 100%;
-}
-
-#bButtom{
-    position: relative;
-    bottom: 105.5vh;
-    left: 51.1%;
-    border-radius: 100%;
-}
-
-.controlButton:active{
+.controlButton:active {
     opacity: 20%;
 }
 
-
-footer{
+footer {
     width: 100%;
-    height: 10vh;
-    font-size: 30px;
+    font-size: clamp(16px, 3vw, 30px);
     text-align: center;
     padding: 20px;
     background-color: black;
 }
 
+/* ---------- Tablet / celular: los paneles se apilan ---------- */
+@media (max-width: 900px) {
+    main {
+        width: 100%;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 0 6px 12px;
+    }
+
+    /* Pantalla alta: se estira la imagen en vertical (los % siguen siendo validos)
+       para que el area de texto tenga espacio suficiente en un celular. */
+    .panelScreen {
+        width: 100%;
+        max-width: 760px;
+        aspect-ratio: 792 / 960;
+    }
+
+    .panelControl {
+        width: min(86%, 340px);
+    }
+
+    .writting {
+        top: 7%;
+        height: 63.5%;
+        flex-direction: column;
+        gap: 2cqw;
+    }
+
+    .titles1,
+    .encryptedTitle {
+        font-size: clamp(12px, 4cqw, 24px);
+    }
+
+    #textInput {
+        font-size: 16px;
+        padding: 6px 8px;
+        min-height: 34px;
+    }
+
+    #encryptedResult {
+        font-size: clamp(12px, 3.8cqw, 22px);
+        padding: 6px 8px;
+    }
+
+    #helpDiv {
+        font-size: clamp(12px, 3.5cqw, 21px);
+        padding: 6px 8px;
+    }
+
+    #optionScreen {
+        flex: 0 0 auto;
+        align-self: stretch;
+        max-height: 34%;
+        font-size: clamp(11px, 3.1cqw, 19px);
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 4px 8px;
+        gap: 4px 10px;
+    }
+
+    #optionScreen p {
+        flex: 1 1 100%;
+    }
+
+    #copias {
+        width: 14%;
+        max-width: 50px;
+    }
+
+    #vaultBoy {
+        width: 16%;
+        min-width: 30px;
+        max-width: 64px;
+    }
+
+    .yesNoMenu {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+    }
+
+    .buttonScreen {
+        width: 6%;
+        min-width: 26px;
+    }
+}
+
+@media (max-width: 420px) {
+    header h1 {
+        text-align: center;
+    }
+}

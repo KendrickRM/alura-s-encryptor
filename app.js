@@ -20,11 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const textoPredeterminado = document.getElementById('optionScreen').innerHTML.trim();
-document.addEventListener('DOMContentLoaded', function () {
-    bButton.addEventListener('click', function restaurar() {
-        optionScreen.innerHTML = textoPredeterminado; 
-        });
-});
 
 
 
@@ -47,7 +42,7 @@ const buttonsScreen = document.querySelectorAll('.buttonScreen');
 
     bButton.addEventListener('click', ()=> {
         help.style.display = 'none'; 
-        optionScreen.innerHTML = textoPredeterminado
+        optionScreen.innerHTML = '';
 
         });
 
